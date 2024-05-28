@@ -82,6 +82,33 @@ label {
   font-weight: 600;
 }
 
+/* label .imgError {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  top: 52%;
+  transform: translateY(-52%);
+} */
+
+.imgError {
+  position: relative;
+}
+
+.imgError img {
+  position: absolute;
+  right: 1.2rem;
+  /* width: 20px;
+  height: 20px; */
+  top: 52%;
+  transform: translateY(-52%);
+}
+
+.icon-error {
+  /* visibility: hidden; */
+  display: none;
+}
+
 input {
   display: block;
   width: 100%;
@@ -116,6 +143,11 @@ button {
   font-size: 1rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 small {
@@ -130,6 +162,15 @@ small span {
   color: var(--red);
   font-weight: 600;
   cursor: pointer;
+}
+.oneError {
+  text-align: right;
+  display: block;
+  color: var(--red);
+  font-size: 0.7rem;
+  margin-top: 0.4rem;
+  font-style: italic;
+  font-weight: normal;
 }
 
 @media (max-width: 768px) {

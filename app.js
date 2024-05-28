@@ -9,10 +9,7 @@ const fnError = document.querySelector(".fnError");
 const lnError = document.querySelector(".lnError");
 const emailError = document.querySelector(".emailError");
 const passwordError = document.querySelector(".passwordError");
-
-// console.log(firstName);
-
-// console.log(firstName, lastName, email, password);
+const iconError = document.querySelector(".icon-error");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -20,54 +17,42 @@ form.addEventListener("submit", (e) => {
   const lName = lastName.value;
   const emailVal = email.value;
   const passwordVal = password.value;
-  // console.log(fName, lName, emailVal, passwordVal);
 
   // Check first name
   if (fName === "") {
     firstName.classList.add("error");
-    fnError.textContent = "First Name cannot be empty";
-    fnError.setAttribute(
-      "style",
-      "text-align: right; display: block; color: var(--red); font-size: 0.7rem; margin-top: 0.4rem; font-style: italic; font-weight: normal;"
-    );
+    fnError.innerHTML = "First Name cannot be empty";
+    fnError.classList.add("oneError");
+    iconError.style.display = "block";
   } else {
     firstName.classList.remove("error");
-    fnError.removeAttribute("style");
-    fnError.textContent = "";
   }
   // Check last name
 
   if (lName === "") {
     lastName.classList.add("error");
-    lnError.setAttribute(
-      "style",
-      "text-align: right; display: block; color: var(--red); font-size: 0.7rem; margin-top: 0.4rem; font-style: italic; font-weight: normal;"
-    );
-    lnError.textContent = "Last Name cannot be empty";
+    lnError.innerHTML = "Last Name cannot be empty";
+    lnError.classList.add("oneError");
+    iconError.style.display = "block";
   } else {
     lastName.classList.remove("error");
-    fnError.removeAttribute("style");
-    lnError.textContent = "";
   }
   // Check email
 
   if (!validateEmail(emailVal) || emailVal === "") {
     email.classList.add("error");
-    emailError.setAttribute(
-      "style",
-      "text-align: right; display: block; color: var(--red); font-size: 0.7rem; margin-top: 0.4rem; font-style: italic; font-weight: normal;"
-    );
-    emailError.textContent = "Looks like this is not an email";
+    emailError.innerHTML = "Looks like this is not an email";
+    emailError.classList.add("oneError");
   } else {
     email.classList.remove("error");
-    emailError.removeAttribute("style");
-    emailError.textContent = "";
   }
 
   // Check password
 
   if (passwordVal === "") {
     password.classList.add("error");
+    passwordError.innerHTML = "Password cannot be empty";
+    passwordError.classList.add("oneError");
   } else {
     password.classList.remove("error");
   }
