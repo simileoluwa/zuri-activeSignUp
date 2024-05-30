@@ -4,6 +4,8 @@ const firstName = document.querySelector(".firstName");
 const lastName = document.querySelector(".lastName");
 const email = document.querySelector(".email");
 const password = document.querySelector(".password");
+const showPassword = document.querySelector("#show-password");
+// const hidePassword = document.querySelector("#hide-password");
 // const newError = document.querySelector(".newError");
 const fnError = document.querySelector(".fnError");
 const lnError = document.querySelector(".lnError");
@@ -23,9 +25,11 @@ form.addEventListener("submit", (e) => {
     firstName.classList.add("error");
     fnError.innerHTML = "First Name cannot be empty";
     fnError.classList.add("oneError");
-    iconError.style.display = "block";
+    iconError.className = "icon-error";
+    iconError.style.display = "inline";
   } else {
     firstName.classList.remove("error");
+    iconError.style.display = "none";
   }
   // Check last name
 
@@ -33,7 +37,6 @@ form.addEventListener("submit", (e) => {
     lastName.classList.add("error");
     lnError.innerHTML = "Last Name cannot be empty";
     lnError.classList.add("oneError");
-    iconError.style.display = "block";
   } else {
     lastName.classList.remove("error");
   }
@@ -64,3 +67,15 @@ function validateEmail(email) {
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
+// show password
+showPassword.addEventListener("click", () => {
+  if (password.type === "password") {
+    password.focus();
+    password.type = "text";
+    showPassword.src = "./images/hide-eye.png";
+  } else {
+    password.type = "password";
+    showPassword.src = "./images/show-eye.png";
+  }
+});
